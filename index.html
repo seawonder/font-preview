@@ -145,12 +145,11 @@ src:url("Jaemin.woff") format("woff");
 font-family:"Freestyle Script";
 src:url("Freestyle Script.woff") format("woff");
 }
-
+  
 @font-face{
 font-family:"Vladimir Script";
 src:url("Vladimir Script.woff") format("woff");
 }
-
 </style>
 
 </head>
@@ -211,7 +210,7 @@ maxlength="12"
 </div>
 </button>
 
-<button class="font-button" data-font="Freestyle Script" data-engonly="true">
+<button class="font-button" data-font="Freestyle Script">
 <div class="font-title" style="font-family:'Freestyle Script'">
 영어폰트
 </div>
@@ -220,7 +219,7 @@ maxlength="12"
 </div>
 </button>
 
-<button class="font-button" data-font="Vladimir Script" data-engonly="true">
+<button class="font-button" data-font="Vladimir Script">
 <div class="font-title" style="font-family:'Vladimir Script'">
 필기폰트
 </div>
@@ -231,6 +230,7 @@ maxlength="12"
 
 </div>
 
+
 <div class="notice">
 
 ※ 특수문자 및 너무 긴 문장, 2줄 이상은 각인 불가합니다.<br>
@@ -239,38 +239,16 @@ maxlength="12"
 
 </div>
 
+
 <script>
 
 const input = document.getElementById("textInput")
 const preview = document.getElementById("previewText")
 const buttons = document.querySelectorAll(".font-button")
 
-let currentFont = ""
-
-function hasKorean(text){
-return /[ㄱ-ㅎㅏ-ㅣ가-힣]/.test(text)
-}
-
 input.addEventListener("input", () => {
 
-let text = input.value || "미리보기 preview"
-
-preview.textContent = text
-
-if(currentFont && hasKorean(text)){
-
-let activeBtn = document.querySelector(".font-button.active")
-
-if(activeBtn && activeBtn.dataset.engonly==="true"){
-
-alert("이 폰트는 영어 전용입니다.")
-
-activeBtn.classList.remove("active")
-preview.style.fontFamily="sans-serif"
-
-}
-
-}
+preview.textContent = input.value || "미리보기"
 
 })
 
@@ -278,23 +256,11 @@ buttons.forEach(button => {
 
 button.addEventListener("click", () => {
 
-let text = input.value
-
-if(button.dataset.engonly==="true" && hasKorean(text)){
-
-alert("이 폰트는 영어만 사용할 수 있습니다.")
-return
-
-}
-
 buttons.forEach(b=>b.classList.remove("active"))
 
 button.classList.add("active")
 
 const font = button.dataset.font
-
-currentFont = font
-
 preview.style.fontFamily = font
 
 })
