@@ -17,6 +17,11 @@ text-align:center;
 color:#111;
 }
 
+.container{
+max-width:420px;
+margin:0 auto;
+}
+
 /* 상단 헤더 */
 
 .page-header{
@@ -108,8 +113,7 @@ color:#666;
 /* 안내문구 */
 
 .notice{
-max-width:420px;
-margin:40px auto 0;
+margin:25px auto 30px;
 font-size:13px;
 color:#555;
 line-height:1.6;
@@ -131,12 +135,12 @@ font-size:16px;
 /* 하단 이미지 */
 
 .engraving-image{
-margin:40px auto;
-max-width:420px;
+margin:40px 0;
 }
 
 .engraving-image img{
-width:100%;
+width:420px;
+max-width:100%;
 height:auto;
 border-radius:8px;
 }
@@ -169,7 +173,7 @@ font-display:swap;
 </head>
 
 <body>
-
+<div class="container">
 <div class="page-header">
 
 <h1>원츠샵 몽블랑 각인 서비스</h1>
@@ -254,8 +258,11 @@ maxlength="12"
 </div>
 
 <div class="engraving-image">
-<img src="./engraving-image.jpg">
+<img src="./engraving-image.jpg" width="420">
 </div>
+
+</div>
+
 
 <script>
 
@@ -288,7 +295,6 @@ preview.style.fontFamily = font
 
 </body>
 </html>
-
 
 
 
